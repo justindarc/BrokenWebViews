@@ -15,6 +15,20 @@ class WebViewController: UIViewController {
         case down
     }
 
+    let links = [
+        "https://kotaku.com/the-secret-douglas-adams-rpg-people-have-been-playing-f-1681986562",
+        "http://www.eurogamer.net/articles/2017-07-14-zelda-breath-of-the-wild-captured-memories-locations-4857",
+        "https://arstechnica.com/gadgets/2017/09/macos-10-13-high-sierra-the-ars-technica-review/",
+        "https://www.reddit.com/r/podcasts/comments/7vcunq/weekly_podcast_post_submit_your_links_here/",
+        "http://ca.ign.com/articles/2018/02/07/sid-meiers-civilization-6-rise-and-fall-review",
+        "https://arstechnica.com/gadgets/2017/09/ios-11-thoroughly-reviewed/6/#h1",
+        "http://ca.ign.com/articles/2018/02/01/iconoclasts-review",
+        "http://www.eurogamer.net/articles/2018-02-02-lost-sphear-review",
+        "http://ca.ign.com/articles/2018/01/31/gorogoa-review",
+        "http://www.eurogamer.net/articles/2018-02-02-dissidia-final-fantasy-nt-review",
+        "http://driving.ca/porsche/macan/reviews/road-test/suv-review-2018-porsche-macan-gts",
+    ]
+
     let webView = WKWebView()
     let reloadButton = UIButton(type: .system)
 
@@ -49,7 +63,7 @@ class WebViewController: UIViewController {
 
         lastContentOffset = webView.scrollView.contentOffset
 
-        webView.load(URLRequest(url: URL(string: "http://www.eurogamer.net/articles/2017-07-14-zelda-breath-of-the-wild-captured-memories-locations-4857")!))
+        webView.load(URLRequest(url: URL(string: self.links[Int(arc4random_uniform(UInt32(links.count)))])!))
     }
 
     func showToolbar() {
