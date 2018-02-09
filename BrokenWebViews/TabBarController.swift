@@ -9,19 +9,18 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    let webViewControllerOne = WebViewController()
-    let webViewControllerTwo = WebViewController()
-    let webViewControllerThree = WebViewController()
-    let webViewControllerFour = WebViewController()
+
+    var webViewControllers: [WebViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webViewControllerOne.tabBarItem = UITabBarItem(title: "First", image: UIImage(named: "first"), tag: 0)
-        webViewControllerTwo.tabBarItem = UITabBarItem(title: "Second", image: UIImage(named: "second"), tag: 1)
-        webViewControllerThree.tabBarItem = UITabBarItem(title: "Third", image: UIImage(named: "first"), tag: 2)
-        webViewControllerFour.tabBarItem = UITabBarItem(title: "Fourth", image: UIImage(named: "second"), tag: 3)
+        for i in 0 ..< 8 {
+            let webViewController = WebViewController()
+            webViewController.tabBarItem = UITabBarItem(title: "#\(i)", image: UIImage(named: "first"), tag: i)
+            webViewControllers.append(webViewController)
+        }
 
-        viewControllers = [webViewControllerOne, webViewControllerTwo, webViewControllerThree, webViewControllerFour]
+        viewControllers = webViewControllers
     }
 }
